@@ -1,5 +1,8 @@
 package org.usfirst.frc.team1389.robot;
 
+import org.usfirst.frc.team1389.robot.controls.ControlBoard;
+
+import com.team1389.hardware.inputs.hardware.JoystickHardware;
 import com.team1389.hardware.inputs.hardware.PDPHardware;
 import com.team1389.hardware.outputs.hardware.CANTalonHardware;
 import com.team1389.hardware.outputs.hardware.DoubleSolenoidHardware;
@@ -34,6 +37,7 @@ public class RobotHardware extends RobotLayout {
 		armElevator = new CANTalonHardware(inv_ARM_ELEVATOR_MOTOR, sinv_ARM_ELEVATOR_MOTOR, can_ARM_ELEVATOR_MOTOR,
 				registry);
 		gearIntake = new VictorHardware(inv_GEAR_INTAKE_MOTOR, pwm_GEAR_INTAKE_MOTOR, registry);
+		climber = new VictorHardware(false, pwm_CLIMBER_MOTOR, registry);
 	}
 
 	public Registry getRegistry() {
@@ -54,4 +58,5 @@ public class RobotHardware extends RobotLayout {
 		rearRight = new CANTalonHardware(inv_RIGHT_REAR_MOTOR, can_RIGHT_REAR_MOTOR, registry);
 
 	}
+	
 }

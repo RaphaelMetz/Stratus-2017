@@ -5,6 +5,8 @@ import java.util.function.Supplier;
 import com.team1389.hardware.inputs.hardware.JoystickHardware;
 import com.team1389.hardware.inputs.software.DigitalIn;
 import com.team1389.hardware.inputs.software.PercentIn;
+import com.team1389.hardware.inputs.software.RangeIn;
+import com.team1389.hardware.value_types.Percent;
 
 /**
  * A basic framework for the robot controls. Like the RobotHardware, one instance of the
@@ -24,7 +26,7 @@ public class ControlBoard extends ControlMap {
 	private ControlBoard() {
 	}
 
-	private final JoystickHardware driveController = new JoystickHardware(DRIVE_CONTROLLER);
+	public final JoystickHardware driveController = new JoystickHardware(DRIVE_CONTROLLER);
 	private final JoystickHardware manipController = new JoystickHardware(MANIP_CONTROLLER);
 
 	// DRIVER CONTROLS
@@ -40,8 +42,8 @@ public class ControlBoard extends ControlMap {
 	public PercentIn trimAxis = driveController.getAxis(ax_TRIM_AXIS).applyDeadband(.075);
 	public Supplier<PercentIn> i_trimAxis = trimAxis::copy;
 
-	public DigitalIn trigger = driveController.getButton(btn_TRIGGER);
-	public Supplier<DigitalIn> i_trigger = trigger::copy;
+	public RangeIn<Percent> trigger = driveController.getAxis(btn_TRIGGER);
+	public Supplier<RangeIn<Percent>> i_trigger = trigger::copy;
 
 	public DigitalIn thumb = driveController.getButton(btn_THUMB).getLatched();
 	public Supplier<DigitalIn> i_thumb = thumb::copy;

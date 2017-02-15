@@ -3,11 +3,15 @@ package org.usfirst.frc.team1389.operation;
 import org.usfirst.frc.team1389.robot.RobotSoftware;
 import org.usfirst.frc.team1389.robot.controls.ControlBoard;
 import org.usfirst.frc.team1389.systems.TeleopGearIntakeSystem;
+import org.usfirst.frc.team1389.systems.ClimberSystem;
 import org.usfirst.frc.team1389.systems.OctoMecanumSystem;
 import org.usfirst.frc.team1389.watchers.DebugDash;
 
 import com.ctre.CANTalon.FeedbackDevice;
 import com.team1389.hardware.inputs.software.DigitalIn;
+import com.team1389.hardware.inputs.software.RangeIn;
+import com.team1389.hardware.outputs.software.PercentOut;
+import com.team1389.hardware.value_types.Percent;
 import com.team1389.system.Subsystem;
 import com.team1389.system.SystemManager;
 
@@ -16,6 +20,7 @@ public class TeleopMain {
 	ControlBoard controls;
 	RobotSoftware robot;
 	DigitalIn thumb;
+	
 
 	public TeleopMain(RobotSoftware robot) {
 		this.robot = robot;
@@ -27,6 +32,7 @@ public class TeleopMain {
 				controls.i_xAxis.get(), controls.i_yAxis.get(), controls.twistAxis, controls.trimAxis,
 				controls.i_thumb.get(), controls.i_trigger.get());
 		Subsystem gearIntake = setupGearIntake();
+		Subsystem climber = setUpClimber();
 		manager = new SystemManager(drive, gearIntake);
 		manager.init();
 		DebugDash.getInstance().watch(gearIntake, robot.armElevator.getAbsoluteIn().getWatchable("absolute pos"),
@@ -40,6 +46,9 @@ public class TeleopMain {
 				controls.i_yButton.get(), controls.i_xButton.get(), controls.i_bButton.get(),
 				controls.i_leftVertAxis.get(),
 				robot.armElevator.getSensorTracker(FeedbackDevice.CtreMagEncoder_Absolute));
+	}
+	private Subsystem setUpClimber(){
+		return new TeleopClimberIntake(robot.climber, robot.climberCurrent, robot.climberAxis, robot.)
 	}
 
 	public void periodic() {

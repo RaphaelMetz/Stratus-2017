@@ -37,7 +37,7 @@ public class RobotMap {
 	protected static final CAN can_RIGHT_REAR_MOTOR = new CAN(3); protected static final boolean inv_RIGHT_REAR_MOTOR = false;
 	protected static final CAN can_ARM_ELEVATOR_MOTOR = new CAN(5); protected static final boolean inv_ARM_ELEVATOR_MOTOR = false;
 	protected static final SPIPort spi_GyroPort = new SPIPort(SPI.Port.kOnboardCS0);
-	protected static final boolean sinv_ARM_ELEVATOR_MOTOR = false;
+	protected static final boolean sinv_ARM_ELEVATOR_MOTOR = false; 
 	protected static final PWM pwm_GEAR_INTAKE_MOTOR = new PWM(1); protected static final boolean inv_GEAR_INTAKE_MOTOR = true;
 	protected static final PCM pcm_FRONT_LEFT_PISTON_A = new PCM(7);
 	protected static final PCM pcm_FRONT_LEFT_PISTON_B = new PCM(0);
@@ -48,6 +48,7 @@ public class RobotMap {
 	protected static final PCM pcm_REAR_RIGHT_PISTON_A = new PCM(5);
 	protected static final PCM pcm_REAR_RIGHT_PISTON_B = new PCM(2);
 	protected static final int pdp_GEAR_INTAKE_CURRENT = 4;
-
+	protected static final int pdp_Climber_Val = 2;
+	protected static final PWM pwm_CLIMBER_MOTOR = new PWM(2); 
 }
 
