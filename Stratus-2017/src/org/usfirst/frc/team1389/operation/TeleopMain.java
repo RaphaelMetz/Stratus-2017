@@ -28,9 +28,9 @@ public class TeleopMain {
 	public void init() {
 	
 		controls = ControlBoard.getInstance();
-		/*Subsystem drive = new OctoMecanumSystem(robot.voltageDrive, robot.pistons, robot.gyroInput,
+		Subsystem drive = new OctoMecanumSystem(robot.voltageDrive, robot.pistons, robot.gyroInput,
 				controls.i_xAxis.get(), controls.i_yAxis.get(), controls.twistAxis, controls.trimAxis,
-				controls.i_thumb.get(), controls.i_trigger.get());*/
+				controls.i_thumb.get(), controls.i_trigger.get());
 		Subsystem gearIntake = setupGearIntake();
 		Subsystem ballIntake = setUpBallIntake();
 	
