@@ -20,10 +20,10 @@ public class ClimberSystem extends Subsystem {
 	protected PercentOut climberVoltageOut;
 	protected RangeIn<Percent> rightTrigger;
 
-	public ClimberSystem(RangeIn<Value> climberCurrent, PercentOut climberVoltageOut, RangeIn<Percent> rightTrigger) {
+	public ClimberSystem(RangeIn<Percent> trigger, RangeIn<Value> climberCurrent, PercentOut climberVoltageOut) {
+		this.rightTrigger = trigger;
 		this.climberCurrent = climberCurrent;
 		this.climberVoltageOut = climberVoltageOut;
-		this.rightTrigger = rightTrigger;
 	}
 
 	@Override

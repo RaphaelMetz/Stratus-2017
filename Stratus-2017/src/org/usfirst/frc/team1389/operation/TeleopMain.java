@@ -48,7 +48,7 @@ public class TeleopMain {
 				robot.armElevator.getSensorTracker(FeedbackDevice.CtreMagEncoder_Absolute));
 	}
 	private Subsystem setUpClimber(){
-		return new TeleopClimberIntake(controls.trigger, robot.climberCurrent, );
+		return new TeleopClimberIntake(controls.trigger, robot.climberCurrent, robot.climberVoltageOut);
 	}
 
 	public void periodic() {
