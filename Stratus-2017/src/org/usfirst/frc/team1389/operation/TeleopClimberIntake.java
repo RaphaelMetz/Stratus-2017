@@ -13,10 +13,14 @@ import com.team1389.watch.Watchable;
 
 public class TeleopClimberIntake extends ClimberSystem {
 
-	public TeleopClimberIntake(RangeIn<Value> climberCurrent, PercentIn climberAxis, PercentOut climberVoltageOut,
+	public TeleopClimberIntake(RangeIn<Value> climberCurrent, PercentOut climberVoltageOut,
 			RangeIn<Percent> rightTrigger) {
-		super(climberCurrent, climberAxis, climberVoltageOut, rightTrigger);
-		// TODO Auto-generated constructor stub
+		super(climberCurrent, climberVoltageOut, rightTrigger);
+		this.climberVoltageOut = climberVoltageOut;
+		this.climberCurrent = climberCurrent;
+		this.rightTrigger = rightTrigger;
+		
+		
 	}
 
 	

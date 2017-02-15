@@ -16,14 +16,12 @@ import com.team1389.watch.Watchable;
 
 public class ClimberSystem extends Subsystem {
 
-	private RangeIn<Value> climberCurrent;
+	protected RangeIn<Value> climberCurrent;
 	protected PercentOut climberVoltageOut;
-	private PercentIn climberAxis;
-	private RangeIn<Percent> rightTrigger;
+	protected RangeIn<Percent> rightTrigger;
 
-	public ClimberSystem(RangeIn<Value> climberCurrent, PercentIn climberAxis, PercentOut climberVoltageOut, RangeIn<Percent> rightTrigger) {
+	public ClimberSystem(RangeIn<Value> climberCurrent, PercentOut climberVoltageOut, RangeIn<Percent> rightTrigger) {
 		this.climberCurrent = climberCurrent;
-		this.climberAxis = climberAxis;
 		this.climberVoltageOut = climberVoltageOut;
 		this.rightTrigger = rightTrigger;
 	}

@@ -7,6 +7,7 @@ import org.usfirst.frc.team1389.robot.controls.ControlMap;
 import com.team1389.hardware.inputs.software.AngleIn;
 import com.team1389.hardware.inputs.software.DigitalIn;
 import com.team1389.hardware.inputs.software.PercentIn;
+import com.team1389.hardware.inputs.software.RangeIn;
 import com.team1389.hardware.outputs.software.DigitalOut;
 import com.team1389.hardware.value_types.Percent;
 import com.team1389.hardware.value_types.Position;
@@ -30,12 +31,12 @@ public class OctoMecanumSystem extends Subsystem {
 
 	public OctoMecanumSystem(FourDriveOut<Percent> voltageDrive, DigitalOut octoShifter, AngleIn<Position> gyro,
 			PercentIn xAxis, PercentIn yAxis, PercentIn twist, PercentIn trim, DigitalIn switchModes,
-			DigitalIn trigger) {
+			RangeIn<Percent> trigger) {
 		this.voltageDrive = voltageDrive;
 		this.octoShifter = octoShifter;
 		this.switchModes = switchModes;
-		setupTankDriveSystem(voltageDrive.getAsTank(), xAxis, yAxis, trim, trigger);
-		setupMecanumDriveSystem(voltageDrive, xAxis, yAxis.copy().invert(), twist, trigger, gyro);
+		setupTankDriveSystem(voltageDrive.getAsTank(), xAxis, yAxis, trim, rangeIn);
+		setupMecanumDriveSystem(voltageDrive, xAxis, yAxis.copy().invert(), twist, rangeIn, gyro);
 	}
 
 	private void setupTankDriveSystem(DriveOut<Percent> drive, PercentIn xAxis, PercentIn yAxis, PercentIn trim,
