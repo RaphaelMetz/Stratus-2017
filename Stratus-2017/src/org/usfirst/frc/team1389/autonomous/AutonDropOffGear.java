@@ -29,7 +29,7 @@ import jaci.pathfinder.Waypoint;
 public class AutonDropOffGear extends AutoModeBase {
 
 	RobotSoftware robot;
-	CommandScheduler scheduler;
+	CommandScheduler scheduler = new CommandScheduler();
 	PathFollowingSystem cont;
 
 	public AutonDropOffGear(RobotSoftware robot) {
