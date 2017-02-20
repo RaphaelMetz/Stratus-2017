@@ -15,8 +15,11 @@ import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
 
 public class HopperAndLowGoals extends AutoModeBase {
+	/*
+	 * TODO
+	 * Make sure the path's work, then add the ball intake
+	 */
 	RobotSoftware robot;
-	CommandScheduler scheduler;
 	PathFollowingSystem cont;
 
 	public HopperAndLowGoals(RobotSoftware robot) {
@@ -25,14 +28,12 @@ public class HopperAndLowGoals extends AutoModeBase {
 
 	@Override
 	public AddList<Watchable> getSubWatchables(AddList<Watchable> stem) {
-		// TODO Auto-generated method stub
-		return null;
+		return stem.put(cont);
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Hopper and low goals";
 	}
 
 	@Override
@@ -51,9 +52,13 @@ public class HopperAndLowGoals extends AutoModeBase {
 		Waypoint[] baseline = new Waypoint[] { new Waypoint(-20, -15, Pathfinder.d2r(-20)),
 				new Waypoint(-150, 30, Pathfinder.d2r(180)) };
 
-		scheduler.schedule(CommandUtil.combineSequential(cont.new PathFollowCommand(hopper, false, -180),
-				CommandUtil.createCommand(()-> cont.leftPos.offset(-cont.leftPos.get())), CommandUtil.createCommand(()->cont.rightPos.offset(-cont.leftPos.get())),cont.new PathFollowCommand(goal, false, -180), cont.new PathFollowCommand(baseline, false, -180)));
-		
+		runCommand(CommandUtil.combineSequential(cont.new PathFollowCommand(hopper, false, -180),
+				CommandUtil.createCommand(
+						() -> robot.frontLeft.getPositionInput().offset(robot.frontLeft.getPositionInput().get())),
+				CommandUtil.createCommand(
+						() -> robot.frontRight.getPositionInput().offset(robot.frontRight.getPositionInput().get())),
+				cont.new PathFollowCommand(goal, false, -180), cont.new PathFollowCommand(baseline, false, -180)));
+
 	}
 
 }

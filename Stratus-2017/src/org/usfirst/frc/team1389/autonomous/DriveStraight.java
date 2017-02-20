@@ -11,7 +11,6 @@ import com.team1389.util.list.AddList;
 import com.team1389.watch.Watchable;
 
 public class DriveStraight extends AutoModeBase {
-	CommandScheduler scheduler;
 	RobotSoftware robot;
 
 	public DriveStraight(RobotSoftware robot) {
@@ -31,7 +30,7 @@ public class DriveStraight extends AutoModeBase {
 	@Override
 	protected void routine() throws AutoModeEndedException {
 		robot.gyro.reset();
-		scheduler.schedule(CommandUtil.createCommand(() -> robot.voltageDrive.set(new FourWheelSignal(.25, .25, .25, .25))));
+		runCommand(CommandUtil.createCommand(() -> robot.voltageDrive.set(new FourWheelSignal(.25, .25, .25, .25))));
 
 	}
 

@@ -13,11 +13,14 @@ import com.team1389.watch.Watchable;
 
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
-
+/*
+ *TODO 
+ *
+ */
 public class Hopper extends AutoModeBase {
 	RobotSoftware robot;
-	CommandScheduler scheduler;
 	PathFollowingSystem cont;
+
 	public Hopper(RobotSoftware robot) {
 		this.robot = robot;
 	}
@@ -45,8 +48,12 @@ public class Hopper extends AutoModeBase {
 		Waypoint[] hopper1 = new Waypoint[] { new Waypoint(0, 0, 0), new Waypoint(-76, -65, Pathfinder.d2r(90)) };
 		Waypoint[] backUp = new Waypoint[] { new Waypoint(16, -15, Pathfinder.d2r(90)), new Waypoint(10, 10, 0) };
 
-		scheduler.schedule(CommandUtil.combineSequential(cont.new PathFollowCommand(hopper1, false, -180),
-				CommandUtil.createCommand(() -> cont.leftPos.offset(-cont.leftPos.get())),CommandUtil.createCommand(()-> cont.rightPos.offset(-cont.rightPos.get())),cont.new PathFollowCommand(backUp, false, -180)));
+		runCommand(CommandUtil.combineSequential(cont.new PathFollowCommand(hopper1, false, -180),
+				CommandUtil.createCommand(
+						() -> robot.frontLeft.getPositionInput().offset(robot.frontLeft.getPositionInput().get())),
+				CommandUtil.createCommand(
+						() -> robot.frontRight.getPositionInput().offset(robot.frontRight.getPositionInput().get())),
+				cont.new PathFollowCommand(backUp, false, -180)));
 
 	}
 

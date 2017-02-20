@@ -17,7 +17,6 @@ import jaci.pathfinder.Waypoint;
 public class GearAndLowGoals extends AutoModeBase {
 
 	RobotSoftware robot;
-	CommandScheduler scheduler = new CommandScheduler();
 	PathFollowingSystem cont;
 
 	public GearAndLowGoals(RobotSoftware robot) {
@@ -46,7 +45,7 @@ public class GearAndLowGoals extends AutoModeBase {
 		Waypoint[] points = new Waypoint[] { new Waypoint(0, 30, 0), new Waypoint(-101, 56, Pathfinder.d2r(-60)) };
 		Waypoint[] points2 = new Waypoint[] { new Waypoint(0, 0, Pathfinder.d2r(-60)),
 				new Waypoint(18, -90, Pathfinder.d2r(-90)) };
-		scheduler.schedule(CommandUtil.combineSequential(cont.new PathFollowCommand(points, false, 180),
+		runCommand(CommandUtil.combineSequential(cont.new PathFollowCommand(points, false, 180),
 				CommandUtil.createCommand(
 						() -> robot.frontLeft.getPositionInput().offset(robot.frontLeft.getPositionInput().get())),
 				cont.new PathFollowCommand(points2, false, 180)));
