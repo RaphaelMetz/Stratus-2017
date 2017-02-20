@@ -31,6 +31,8 @@ public class RobotSoftware extends RobotHardware {
 	public RangeIn<Value> gearIntakeCurrent = pdp.getCurrentIn(pdp_GEAR_INTAKE_CURRENT);
 	public PercentOut climberVoltageOut = climber.getVoltageOutput();
 	public RangeIn<Value> climberCurrent = pdp.getCurrentIn(pdp_Climber_Val);
+	public RangeIn<Speed> leftSpeed = frontLeft.getSpeedInput();
+	public RangeIn<Speed> rightSpeed = frontRight.getSpeedInput();
 	public OhmThreadService threadManager = new OhmThreadService(20);
 
 	public static RobotSoftware getInstance() {

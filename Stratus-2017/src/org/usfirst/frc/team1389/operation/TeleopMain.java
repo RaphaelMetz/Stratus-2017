@@ -30,7 +30,7 @@ public class TeleopMain {
 
 		controls = ControlBoard.getInstance();
 		Subsystem drive = new OctoMecanumSystem(robot.voltageDrive, robot.pistons, robot.gyroInput,
-				controls.i_xAxis.get(), controls.i_yAxis.get(), controls.twistAxis, controls.trimAxis,
+				controls.i_xAxis.get(), controls.i_yAxis.get(), controls.i_twistAxis.get(), controls.i_trimAxis.get(),
 				controls.i_thumb.get(), controls.i_trigger.get());
 		Subsystem gearIntake = setupGearIntake();
 		Subsystem ballIntake = setUpBallIntake();
@@ -57,12 +57,12 @@ public class TeleopMain {
 	}
 
 	private Subsystem setUpBallIntake() {
-		return new BallIntakeSystem(controls.trigger, gearIntakeState, robot.ballVoltageOut);
+		return new BallIntakeSystem(controls.i_leftBumper.get(), gearIntakeState, robot.ballVoltageOut);
 
 	}
 	
 	private ClimberSystem setUpClimbing() {
-		return new ClimberSystem(controls.leftTriggerAxis, robot.climberCurrent, robot.climberVoltageOut);
+		return new ClimberSystem(controls.i_leftTriggerAxis.get(), robot.climberCurrent, robot.climberVoltageOut);
 	}
 
 	public void periodic() {
