@@ -13,9 +13,15 @@ import com.team1389.watch.Watchable;
 
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
-/*
- *TODO 
+
+/**
+ * This auto just triggers the hoppers
+ * 
+ * @author raffi_000
  *
+ */
+/*
+ * TODO Make sure path works, then add in SubSystem functions
  */
 public class Hopper extends AutoModeBase {
 	RobotSoftware robot;

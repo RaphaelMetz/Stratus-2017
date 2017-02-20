@@ -14,6 +14,15 @@ import com.team1389.watch.Watchable;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
 
+/**
+ * This auto drops off a gear and shoots lowgoals
+ * 
+ * @author raffi_000
+ *
+ */
+/*
+ * TODO Add SubSystem functionality
+ */
 public class GearAndLowGoals extends AutoModeBase {
 
 	RobotSoftware robot;

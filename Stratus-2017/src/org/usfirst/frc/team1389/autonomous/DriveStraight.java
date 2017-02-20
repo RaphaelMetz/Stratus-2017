@@ -10,6 +10,12 @@ import com.team1389.system.drive.FourWheelSignal;
 import com.team1389.util.list.AddList;
 import com.team1389.watch.Watchable;
 
+/**
+ * This is a simple, drive straight auton
+ * 
+ * @author raffi_000
+ *
+ */
 public class DriveStraight extends AutoModeBase {
 	RobotSoftware robot;
 

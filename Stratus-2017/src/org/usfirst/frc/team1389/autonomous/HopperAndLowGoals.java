@@ -15,9 +15,13 @@ import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
 
 public class HopperAndLowGoals extends AutoModeBase {
+	/**
+	 * This auto goes to the hopper and then to the low goal
+	 * 
+	 * @author raffi_000
+	 */
 	/*
-	 * TODO
-	 * Make sure the path's work, then add the ball intake
+	 * TODO Make sure the path's work, then add the ball intake
 	 */
 	RobotSoftware robot;
 	PathFollowingSystem cont;

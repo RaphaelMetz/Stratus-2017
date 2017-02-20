@@ -26,6 +26,15 @@ import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
 
+/**
+ * This auto dust drops off a gear
+ * 
+ * @author raffi_000
+ *
+ */
+/*
+ * TODO Add SubSystem functionality
+ */
 public class DropOffGear extends AutoModeBase {
 
 	RobotSoftware robot;
