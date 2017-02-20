@@ -10,11 +10,11 @@ import com.team1389.system.drive.FourWheelSignal;
 import com.team1389.util.list.AddList;
 import com.team1389.watch.Watchable;
 
-public class AutonDriveStraight extends AutoModeBase {
+public class DriveStraight extends AutoModeBase {
 	CommandScheduler scheduler;
 	RobotSoftware robot;
 
-	public AutonDriveStraight(RobotSoftware robot) {
+	public DriveStraight(RobotSoftware robot) {
 		this.robot = robot;
 	}
 

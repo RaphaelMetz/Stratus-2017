@@ -2,8 +2,8 @@ package org.usfirst.frc.team1389.autonomous;
 
 import com.team1389.auto.AutoModeBase;
 
-public class AutonModeSelector {
-	public static AutoModeBase createAutoMode(AutonOption autonOption) {
+public class Selector {
+	public static AutoModeBase createAutoMode(Option autonOption) {
 		switch (autonOption) {
 		case DRIVE_STRAIGHT:
 			return null;

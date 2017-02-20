@@ -26,13 +26,13 @@ import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
 
-public class AutonDropOffGear extends AutoModeBase {
+public class DropOffGear extends AutoModeBase {
 
 	RobotSoftware robot;
 	CommandScheduler scheduler = new CommandScheduler();
 	PathFollowingSystem cont;
 
-	public AutonDropOffGear(RobotSoftware robot) {
+	public DropOffGear(RobotSoftware robot) {
 		this.robot = robot;
 	}
 

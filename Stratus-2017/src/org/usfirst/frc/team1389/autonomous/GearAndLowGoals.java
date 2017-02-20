@@ -14,13 +14,13 @@ import com.team1389.watch.Watchable;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
 
-public class AutonGearAndLowGoals extends AutoModeBase {
+public class GearAndLowGoals extends AutoModeBase {
 
 	RobotSoftware robot;
 	CommandScheduler scheduler = new CommandScheduler();
 	PathFollowingSystem cont;
 
-	public AutonGearAndLowGoals(RobotSoftware robot) {
+	public GearAndLowGoals(RobotSoftware robot) {
 		this.robot = robot;
 		PathFollowingSystem.Constants constants = new PathFollowingSystem.Constants(200, 20, 12, .001, .004, 0, 0.65,
 				.6);

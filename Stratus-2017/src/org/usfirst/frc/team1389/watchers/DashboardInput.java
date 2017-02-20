@@ -1,7 +1,7 @@
 package org.usfirst.frc.team1389.watchers;
 
-import org.usfirst.frc.team1389.autonomous.AutonModeSelector;
-import org.usfirst.frc.team1389.autonomous.AutonOption;
+import org.usfirst.frc.team1389.autonomous.Selector;
+import org.usfirst.frc.team1389.autonomous.Option;
 
 import com.team1389.auto.AutoModeBase;
 
@@ -19,11 +19,11 @@ public class DashboardInput {
 		init();
 	}
 
-	private SendableChooser<AutonOption> autonSelector;
+	private SendableChooser<Option> autonSelector;
 
 	public void init() {
-		autonSelector = new SendableChooser<AutonOption>();
-		for (AutonOption autonOption : AutonOption.values()) {
+		autonSelector = new SendableChooser<Option>();
+		for (Option autonOption : Option.values()) {
 			autonSelector.addObject(autonOption.name, autonOption);
 		}
 
@@ -31,19 +31,19 @@ public class DashboardInput {
 	}
 
 	private static final String SELECTED_AUTO_MODE = "selected_auto_mode";
-	private static final AutonOption DEFAULT_MODE = AutonOption.DRIVE_STRAIGHT;
+	private static final Option DEFAULT_MODE = Option.DRIVE_STRAIGHT;
 
 	public AutoModeBase getSelectedAutonMode() {
 		String autoModeString = SmartDashboard.getString(SELECTED_AUTO_MODE, DEFAULT_MODE.name);
-		AutonOption selectedOption = DEFAULT_MODE;
-		for (AutonOption autonOption : AutonOption.values()) {
+		Option selectedOption = DEFAULT_MODE;
+		for (Option autonOption : Option.values()) {
 			if (autonOption.name.equals(autoModeString)) {
 				selectedOption = autonOption;
 				break;
 			}
 		}
-		selectedOption = (AutonOption) autonSelector.getSelected();
-		return AutonModeSelector.createAutoMode(selectedOption);
+		selectedOption = (Option) autonSelector.getSelected();
+		return Selector.createAutoMode(selectedOption);
 	}
 
 }
